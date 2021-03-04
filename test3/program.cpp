@@ -1,11 +1,8 @@
 #include <stdio.h>
-/*
-W C++ nie są dozwolone niejawne zmiennel
-Można to rozwiązać w taki sposób ja w programie bądź usunąć te zmienne z program.cpp i 
-zrobić #include "modul.h"
-*/
- const double PI = 3.141593;
- const double E  = 2.718282;
+// trzeba doppisać w moddul.cpp
+
+extern const double PI;
+extern const double E;
 
 int main()
 {

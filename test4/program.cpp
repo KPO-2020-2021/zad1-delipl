@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*W deklaracji funkcji zawsze trzeba podać argumenty*/
+/* W deklaracji funkcji zawsze trzeba podać argumenty */
 
 double Dodaj(double, double);
 
