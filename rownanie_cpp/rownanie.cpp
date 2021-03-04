@@ -19,17 +19,16 @@ void WprowadzWspTrojmianu( TrojmianKw *wTKw )
 {
   cout << "Podaj wspolczynnik a:\n";
   cin >> wTKw->a;
-  /*
-   * Tu uzupelnij
-   */
+  cout << "Podaj wspolczynnik b:\n";
+  cin >> wTKw->b; 
+  cout << "Podaj wspolczynnik c:\n";
+  cin >> wTKw->c;
 }
 
 
 void WyswietlTrojmian( TrojmianKw TKw )
 {
-  /*
-   * Tu uzupelnij
-   */
+  cout << TKw.a << "x^2 + "<< TKw.b << "x + " << TKw.c << " = 0" << endl;
 }
 
 
@@ -52,15 +51,12 @@ int WyliczPierwiastki(TrojmianKw   TKw, double *wX1, double *wX2)
   Delta_2  = (TKw.b*TKw.b) - (4.0*TKw.a*TKw.c);
 
   if (Delta_2 > 0) {
-
       Delta = sqrt( Delta_2 );
       *wX1 = (-TKw.b - Delta) / (2*TKw.a);
-      /*
-       * Tu uzupelnic
-       */
+      *wX2 = (-TKw.b + Delta) / (2*TKw.a);
+      return 2;
 
   } else if  (Delta_2 == 0) {
-
       *wX1 = -TKw.b/(2*TKw.a);
       return 1;
 
@@ -82,9 +78,7 @@ int main() {
   WprowadzWspTrojmianu(&TKw);
 
   if (TKw.a == 0) {
-    /*
-     * Tu uzupelnic
-     */
+    cout << "To nie jest równanie kwadratowe. a = 0" << endl;
     return 1;
   }
 
@@ -94,21 +88,16 @@ int main() {
     case 2:
       cout << "Istnieja dwa rozwiazania rzeczywiste:\n";
       cout << "  x1 = " << X1 << endl;
-      /*
-       * Tu uzupelnic
-       */
+      cout << "  x2 = " << X2 << endl;
       break;
 
     case 1:
-      /*
-       * Tu uzupelnic
-       */
+      cout << "Istnieje jedno rozwiazanie rzeczywiste:\n";
+      cout << "  x = " << X1 << endl;
       break;
 
     case 0:
-      /*
-       * Tu uzupelnic
-       */
+      cout << "Nie istnieją żadne rozwiązania rzeczywiste:\n"; 
       break;
   }
 

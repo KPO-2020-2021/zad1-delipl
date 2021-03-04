@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <ctype.h>
-
+#include <stdlib.h>
+#include <string.h>
+/*
+  Trzeba zmienić funkcję void ZamienNaPodkreslenie(char* Temp) na char* ZamienNaPodkreslenie(char* Temp) [75]
+  ponieważ nie można zmienić litery pod wskaźnikiem. Trzeba zamienić cały ciąg i wywołać funkcję w przypisaniu. [151]
+  Zwolnienie pamięci pod wskaźnikiem [161]
+*/
 
 
 /*
@@ -66,10 +72,15 @@ int RozmiarNajdluzszegoSlowa(char* Tekst)
  *    Tekst - wskaznik na tekst, dla ktorego ma byc wyznaczona
  *            dlugosc najdluzszego slowa, ktore w nim sie znajduje.
  */
-void ZamienNaPodkreslenie(char* Tekst)
+char* ZamienNaPodkreslenie(char* Temp)
 {
-  for (; *Tekst; ++Tekst)
-      if (*Tekst == ' ') *Tekst = '_';
+  int size = strlen(Temp)+1;
+  char * Tekst = (char*) malloc(size*sizeof(char));
+  for(int i = 0; i < size; i++){
+    if(Temp[i] == ' ') Tekst[i] = '_';
+    else Tekst[i] = Temp[i];
+  }
+  return Tekst;
 }
 
 
@@ -135,10 +146,9 @@ int main()
   printf(" Statystyka dla tekstu: '%s'\n\n",Napis);
 
 
-
   IloscSpacji = PoliczSpacje(Napis);
   DlugoscSlowaXXX = RozmiarNajdluzszegoSlowa(Napis);
-  ZamienNaPodkreslenie(Napis);
+  Napis = ZamienNaPodkreslenie(Napis);
   IloscMaLiter = IloscMalychLiter(Napis);
   IloscWiLiter = IloscWielkichLiter(Napis);
 
@@ -148,5 +158,6 @@ int main()
   printf(" Rozmiar najdluzszego slowa: %i\n",DlugoscSlowaXXX);
   printf(" Tekst z podkresleniami: '%s'\n",Napis);
   printf("\n");
+  free(Napis);
   return 0;
 }

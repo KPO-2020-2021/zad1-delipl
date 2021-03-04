@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <math.h>
-
+/*
+  g++ automatycznie linkuje math.h:           g++ -Wall -pedantic  test1/rownanie.c
+  gcc potrzebuje dodatkowego argumentu -lm:   gcc -Wall -pedantic  test1/rownanie.c -lm
+*/
 
 struct TrojmianKw {
   double  a;
