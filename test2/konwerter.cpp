@@ -4,7 +4,7 @@
 
 
 
-char Zamien( char KodZnaku, char *TabKodow, char *TabZnakow, int Rozmiar)
+char Zamien( int KodZnaku, int *TabKodow, char *TabZnakow, int Rozmiar)
 {
   int i;
 
@@ -15,7 +15,7 @@ char Zamien( char KodZnaku, char *TabKodow, char *TabZnakow, int Rozmiar)
 }
 
 
-void KonwertujNapis( char *Napis, char *TabKodow, char *TabZnakow, int Rozmiar)
+void KonwertujNapis( char *Napis, int *TabKodow, char *TabZnakow, int Rozmiar)
 {
   unsigned int i;
  
@@ -27,21 +27,22 @@ void KonwertujNapis( char *Napis, char *TabKodow, char *TabZnakow, int Rozmiar)
 int main()
 {
   int  IloscKodow = 10;
-  int  Rozmiar = IloscKodow * sizeof(char);
-  char  *TabKodow = (char*)malloc(Rozmiar);
-  char *TabZnakow = (char*)malloc(IloscKodow*sizeof(char)); 
-  char *Napis = strdup("CzeÂ¶Ã¦ Â¦wiecie!!! Â¯yczÃª miÂ³ego dnia.");
+  int  Rozmiar = IloscKodow * sizeof(int);
 
-  TabKodow[0] = 'Ã¦';     TabZnakow[0] = 'c';
-  TabKodow[1] = 'Ãª';     TabZnakow[1] = 'e';
-  TabKodow[2] = 'Â³';     TabZnakow[2] = 'l';
-  TabKodow[3] = 'Â¶';     TabZnakow[3] = 's';
-  TabKodow[4] = 'Â¦';     TabZnakow[4] = 'S';
-  TabKodow[5] = 'Â¯';     TabZnakow[5] = 'Z';
-  TabKodow[6] = 'Â¯';     TabZnakow[6] = 'Z';
-  TabKodow[7] = 'Â¯';     TabZnakow[7] = 'Z';
-  TabKodow[8] = 'Â¯';     TabZnakow[8] = 'Z';
-  TabKodow[9] = 'Â¯';     TabZnakow[9] = 'Z';    
+  int  *TabKodow = (int*)malloc(Rozmiar);
+  char *TabZnakow = (char*)malloc(IloscKodow*sizeof(char)); 
+  char *Napis = strdup("Cze¶æ ¦wiecie!!! ¯yczê mi³ego dnia.");
+
+  TabKodow[0] = 'æ';     TabZnakow[0] = 'c';
+  TabKodow[1] = 'ê';     TabZnakow[1] = 'e';
+  TabKodow[2] = '³';     TabZnakow[2] = 'l';
+  TabKodow[3] = '¶';     TabZnakow[3] = 's';
+  TabKodow[4] = '¦';     TabZnakow[4] = 'S';
+  TabKodow[5] = '¯';     TabZnakow[5] = 'Z';
+  TabKodow[6] = '¯';     TabZnakow[6] = 'Z';
+  TabKodow[7] = '¯';     TabZnakow[7] = 'Z';
+  TabKodow[8] = '¯';     TabZnakow[8] = 'Z';
+  TabKodow[9] = '¯';     TabZnakow[9] = 'Z';    
   
   printf("Napis Latin2:  \"%s\"\n",Napis);
 
